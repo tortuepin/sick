@@ -1,0 +1,11 @@
+(define (even? n)
+  (= (remainder n 2) 0))
+(define (fast-expt a b n)
+  (cond ((= n 0) 1)
+        ((= n 1) a)
+        ((even? n) (fast-expt (* a (* b b)) b (/ n 2)))
+        (else (fast-expt (* a b) b (- n 1)))))
+
+(print (fast-expt 1 2 4))
+(print (fast-expt 1 3 3))
+(print (fast-expt 1 3 0))
